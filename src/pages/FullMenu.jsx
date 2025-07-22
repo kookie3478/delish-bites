@@ -272,7 +272,7 @@ export default function FullMenu() {
         ))}
       </div>
 
-      {/* 🛒 Floating Cart Sidebar */}
+      {/* Floating Cart Sidebar */}
       {showCart && (
         <div className="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl border-l p-4 z-50 flex flex-col">
           <div className="flex justify-between items-center mb-4">
@@ -343,9 +343,9 @@ export default function FullMenu() {
         </div>
       )}
 
-      {/* 💳 Summary Panel */}
+      {/* Summary Panel */}
       {showSummary && (
-        <div className="fixed top-0 right-80 h-full w-72 bg-[#fffaf3] border-l shadow-xl p-4 z-40">
+        <div className="fixed top-0 right-0 h-full w-80 bg-[#fffaf3] border-l shadow-xl p-4 z-100">
           <h3 className="text-xl font-bold text-[#8a4b36] mb-2">
             Payment Summary
           </h3>
