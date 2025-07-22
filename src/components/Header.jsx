@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [showModal, setShowModal] = useState(false);
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [people, setPeople] = useState(1);
+  const [navOpen, setNavOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -42,6 +44,8 @@ export default function Header() {
           <h1 className="text-3xl font-[Pacifico] text-[#f2e8df] tracking-wider">
             Delish Bites
           </h1>
+
+          {/* Desktop nav */}
           <nav className="space-x-6 text-md font-medium text-[#f2e8df] hidden md:flex">
             <a href="#about" className="hover:text-[#d77a61] transition-colors duration-300">About</a>
             <a href="#menu" className="hover:text-[#d77a61] transition-colors duration-300">Menu</a>
@@ -49,7 +53,18 @@ export default function Header() {
             <a href="#gallery" className="hover:text-[#d77a61] transition-colors duration-300">Gallery</a>
             <a href="#contact" className="hover:text-[#d77a61] transition-colors duration-300">Contact</a>
           </nav>
-          <div className="flex gap-3">
+
+          {/* Mobile hamburger icon */}
+          <button
+            onClick={() => setNavOpen(!navOpen)}
+            className="md:hidden text-[#f2e8df]"
+            aria-label="Toggle menu"
+          >
+            {navOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+
+          {/* Action buttons (visible on all sizes) */}
+          <div className="hidden md:flex gap-3">
             <button
               onClick={() => setShowModal(true)}
               className="bg-[#f2e8df] text-[#3e2f1c] px-4 py-2 rounded-full hover:bg-[#e0cfc0] transition-colors duration-300"
@@ -64,6 +79,37 @@ export default function Header() {
             </button>
           </div>
         </div>
+
+        {/* Mobile menu dropdown */}
+        {navOpen && (
+          <div className="md:hidden px-4 pb-4 bg-[#3e2f1c] space-y-3 text-[#f2e8df] font-medium">
+            <a href="#about" onClick={() => setNavOpen(false)}>About</a>
+            <a href="#menu" onClick={() => setNavOpen(false)}>Menu</a>
+            <a href="#specials" onClick={() => setNavOpen(false)}>Specials</a>
+            <a href="#gallery" onClick={() => setNavOpen(false)}>Gallery</a>
+            <a href="#contact" onClick={() => setNavOpen(false)}>Contact</a>
+            <div className="flex flex-col gap-2 pt-2">
+              <button
+                onClick={() => {
+                  setShowModal(true);
+                  setNavOpen(false);
+                }}
+                className="bg-[#f2e8df] text-[#3e2f1c] px-4 py-2 rounded-full hover:bg-[#e0cfc0] transition-colors duration-300"
+              >
+                Book a Table
+              </button>
+              <button
+                onClick={() => {
+                  handleOrderClick();
+                  setNavOpen(false);
+                }}
+                className="bg-[#d77a61] text-white px-4 py-2 rounded-full hover:bg-[#bb614a] transition-colors duration-300"
+              >
+                Order Online
+              </button>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Booking Modal */}
