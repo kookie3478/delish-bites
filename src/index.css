@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  font-family: 'Cabin', sans-serif;
+  background-color: #fff8f0;
+  color: #3e2f1c;
+}
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5 {
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+}
+
+a {
+  font-weight: 500;
+  color: #d77a61;
+  text-decoration: none;
+}
+a:hover {
+  color: #b04a5a;
+}
+
+/* Body Layout */
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Buttons */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: 'Cabin', sans-serif;
+  background-color: #d77a61;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: #b04a5a;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #d77a61;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b04a5a;
+}
+
+
+/* Dark mode styles */
+.dark {
+  background-color: #121212;
+  color: #f5f5dc;
+}
+
+.dark body {
+  background-color: #121212;
+  color: #f5f5dc;
+}
+
+/* Scrollbar in dark mode */
+.dark ::-webkit-scrollbar-track {
+  background: #2c2416;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #e6b17e;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #d77a61;
+}
+
+@keyframes fade1 {
+  0%, 20% { opacity: 1; }
+  25%, 100% { opacity: 0; }
+}
+
+@keyframes fade2 {
+  0%, 20% { opacity: 0; }
+  25%, 40% { opacity: 1; }
+  45%, 100% { opacity: 0; }
+}
+
+@keyframes fade3 {
+  0%, 40% { opacity: 0; }
+  45%, 60% { opacity: 1; }
+  65%, 100% { opacity: 0; }
+}
+
+@keyframes fade4 {
+  0%, 60% { opacity: 0; }
+  65%, 80% { opacity: 1; }
+  85%, 100% { opacity: 0; }
+}
+
+@keyframes fade5 {
+  0%, 80% { opacity: 0; }
+  85%, 100% { opacity: 1; }
+}
+
+
+/* Background Image Fader Classes */
+.bg-fade1, .bg-fade2, .bg-fade3, .bg-fade4, .bg-fade5 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.bg-fade1 {
+  animation-name: fade1;
+}
+.bg-fade2 {
+  animation-name: fade2;
+}
+.bg-fade3 {
+  animation-name: fade3;
+}
+.bg-fade4 {
+  animation-name: fade4;
+}
+.bg-fade5 {
+  animation-name: fade5;
+}
