@@ -59,7 +59,7 @@ const fullMenu = [
 
 export default function Menu() {
   return (
-    <section className="py-20 bg-[#fffaf3] text-[#3e2f1c] px-4">
+    <section id="menu" className="py-20 bg-[#fffaf3] text-[#3e2f1c] px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-pacifico mb-14 text-center text-[#d77a61]">
           Our Menu

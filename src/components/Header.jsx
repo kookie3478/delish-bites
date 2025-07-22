@@ -85,7 +85,7 @@ export default function Header() {
                   min={minDate}
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  className="w-full border px-3 py-2 rounded-md"
+                  className="w-full border px-3 py-2 rounded-md text-amber-950"
                 />
               </div>
               <div>
@@ -94,7 +94,7 @@ export default function Header() {
                   type="time"
                   value={time}
                   onChange={(e) => setTime(e.target.value)}
-                  className="w-full border px-3 py-2 rounded-md"
+                  className="w-full border px-3 py-2 rounded-md text-amber-900"
                 />
                 <p className="text-xs text-gray-500 mt-1">Between 09:00 and 22:00</p>
               </div>
@@ -103,7 +103,7 @@ export default function Header() {
                 <select
                   value={people}
                   onChange={(e) => setPeople(e.target.value)}
-                  className="w-full border px-3 py-2 rounded-md"
+                  className="w-full border px-3 py-2 rounded-md text-amber-800"
                 >
                   {[...Array(10)].map((_, i) => (
                     <option key={i + 1} value={i + 1}>
